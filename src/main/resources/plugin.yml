@@ -1,0 +1,34 @@
+name: Slender
+author: LimeByte
+version: 0.0.1
+description: Slender in Minecraft
+
+main: me.limebyte.slender.Slender
+load: POSTWORLD
+
+website: http://dev.bukkit.org/server-mods/slender/
+dev-url: http://dev.bukkit.org/server-mods/slender/
+database: false
+
+depend: [Spout]
+
+name: ${project.name}
+author: LimeByte
+version: ${project.version}
+description: ${project.description}
+
+main: me.limebyte.slender.Slender
+load: POSTWORLD
+
+website: ${project.url}
+dev-url: http://dev.bukkit.org/server-mods/slender/
+database: false
+
+depend: [Spout]
+
+commands:
+  slender:
+    description: Base Slender command.
+    aliases: [sl, slen]
+    usage: |
+        /<command>\n/<command> <argument>
