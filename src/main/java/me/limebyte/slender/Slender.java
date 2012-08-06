@@ -28,6 +28,11 @@ public class Slender extends JavaPlugin implements Listener {
 	 */
 	private Logger log;
 	
+	/**
+	 * The common place where Slender textures are stored.
+	 */
+	public static final String TEXTURE_URL = "https://raw.github.com/LimeByte/Slender/master/images/textures/";
+	
 	@Override
 	public final void onEnable() {
 		log = this.getLogger();

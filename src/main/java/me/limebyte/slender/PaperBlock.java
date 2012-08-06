@@ -1,5 +1,7 @@
 package me.limebyte.slender;
 
+import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 import org.getspout.spoutapi.material.block.GenericCuboidCustomBlock;
 
@@ -16,7 +18,7 @@ public class PaperBlock extends GenericCuboidCustomBlock {
 	/**
 	 * The depth of the block.
 	 */
-	private static final float BLOCK_DEPTH = 0.3F;
+	private static final float BLOCK_DEPTH = 0.1F;
 	
 	/**
 	 * Creates a new place-able piece of paper.
@@ -26,8 +28,11 @@ public class PaperBlock extends GenericCuboidCustomBlock {
 	public PaperBlock(final Plugin plugin) {
 		super(plugin,
 			  "PaperBlock",
-			  "http://cdn.spout.org/img/icon/spout_16x16.png", TEXTURE_SIZE,
-			  0F, 0F, 0F, 1F, BLOCK_DEPTH, 1F, true);
+			  Slender.TEXTURE_URL + "note.png", TEXTURE_SIZE,
+			  0F, 0F, 0F, BLOCK_DEPTH, 1F, 1F, true);
+		
+		this.setItemDrop(new ItemStack(Material.PAPER, 1));
+		this.setOpaque(true);
 	}
 
 }
