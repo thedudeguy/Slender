@@ -50,7 +50,7 @@ public final class Textures {
 	/**
 	 * The Slender block textures.
 	 */
-	public static final Texture BLOCKS = new Texture(Slender.instance,
+	public static final Texture BLOCKS = new Texture(Slender.getInstance(),
 			                                         BLOCKS_URL,
 			                                         BLOCKS_SIZE, BLOCKS_SIZE,
 			                                         BLOCK_SIZE);
@@ -58,7 +58,7 @@ public final class Textures {
 	/**
 	 * The Slender item textures.
 	 */
-	public static final Texture ITEMS = new Texture(Slender.instance,
+	public static final Texture ITEMS = new Texture(Slender.getInstance(),
 			                                        ITEMS_URL,
 			                                        ITEMS_SIZE, ITEMS_SIZE,
 			                                        ITEM_SIZE);

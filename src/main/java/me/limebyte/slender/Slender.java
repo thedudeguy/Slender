@@ -15,7 +15,10 @@ public class Slender extends JavaPlugin implements Listener {
 	 */
 	private Logger log;
 	
-	public static Slender instance;
+	/**
+	 * The current running Slender instance.
+	 */
+	private static Slender instance;
 	
 	@Override
 	public final void onEnable() {
@@ -25,8 +28,7 @@ public class Slender extends JavaPlugin implements Listener {
 		this.getServer().getPluginManager().registerEvents(this, this);
 		
         // Load command class
-        CommandManager cmdExecutor = new CommandManager(this);
-        getCommand("slender").setExecutor(cmdExecutor);
+        getCommand("slender").setExecutor(new CommandManager());
 	}
 	
 	/**
@@ -36,6 +38,15 @@ public class Slender extends JavaPlugin implements Listener {
 	 */
 	public final Logger log() {
 		return log;
+	}
+	
+	/**
+	 * Gets the current running Slender instance.
+	 * 
+	 * @return The instance
+	 */
+	public static final Slender getInstance() {
+		return instance;
 	}
 	
 }

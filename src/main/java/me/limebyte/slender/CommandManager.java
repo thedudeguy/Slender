@@ -14,27 +14,39 @@ import org.getspout.spoutapi.player.SpoutPlayer;
  * Represents the class which manages the Slender command.
  */
 public class CommandManager implements CommandExecutor {
-
-    // Get Main Class
-    private static Slender plugin;
-    public CommandManager(final Slender instance) {
-        plugin = instance;
-    }
+	
+	/**
+	 * The Server time value for night.
+	 */
+	private static final int NIGHT_TIME = 18000;
 	
 	@Override
-	public final boolean onCommand(CommandSender sender, Command command, String label, String[] arg) {
+	public final boolean onCommand(final CommandSender sender, final Command command,
+			                       final String label, final String[] arg) {
 		if (sender instanceof SpoutPlayer && ((SpoutPlayer) sender).isSpoutCraftEnabled()) {
 			if (arg[0].equalsIgnoreCase("join")) {
 				SpoutPlayer player = (SpoutPlayer) sender;
 				player.setGameMode(GameMode.SURVIVAL);
 				player.getMainScreen().getHungerBar().setVisible(false);
-				player.getWorld().setTime(18000);
+				player.getWorld().setTime(NIGHT_TIME);
 				SpoutManager.getSkyManager().setFogColor(player, new Color(0, 0, 0));
 				SpoutManager.getSkyManager().setCloudsVisible(player, false);
 				player.setRenderDistance(RenderDistance.TINY);
 				player.setMinimumRenderDistance(RenderDistance.TINY);
 				player.setMaximumRenderDistance(RenderDistance.TINY);
 				player.setExp(1F);
+			}
+			
+			if (arg[0].equalsIgnoreCase("build")) {
+				SpoutPlayer player = (SpoutPlayer) sender;
+				player.setGameMode(GameMode.CREATIVE);
+				player.getWorld().setTime(0);
+				SpoutManager.getSkyManager().setFogColor(player, new Color("ffffff"));
+				SpoutManager.getSkyManager().setCloudsVisible(player, true);
+				player.setRenderDistance(RenderDistance.NORMAL);
+				player.setMinimumRenderDistance(RenderDistance.TINY);
+				player.setMaximumRenderDistance(RenderDistance.FAR);
+				player.getInventory().addItem(new SpoutItemStack(new PaperBlock(), 1));
 			}
 		} else {
 			sender.sendMessage("[Slender] You need to be using Spoutcraft to play.");
