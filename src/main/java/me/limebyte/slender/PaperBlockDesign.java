@@ -22,7 +22,7 @@ public class PaperBlockDesign extends GenericCuboidBlockDesign {
 	/**
 	 * The size of the texture file in pixels.
 	 */
-	private static final int TEXTURE_WIDTH = 32;
+	private static final int TEXTURE_WIDTH = 16;
 	
 	/**
 	 * The size of the texture file in pixels.
@@ -39,7 +39,7 @@ public class PaperBlockDesign extends GenericCuboidBlockDesign {
 			  new Texture(
 					  plugin, Slender.TEXTURE_URL + "note.png",
 					  TEXTURE_WIDTH, TEXTURE_HEIGHT, TEXTURE_SIZE),
-			  new int[]{0, 1, 1, 1, 1, 1},
+			  new int[]{0, 0, 0, 0, 0, 0},
 			  0F, 0F, 0F, 1F, 1F, BLOCK_DEPTH);
 		this.setBoundingBox(0F, 0F, 0F, 1F, 1F, BLOCK_DEPTH);
 	}
