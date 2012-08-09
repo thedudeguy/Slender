@@ -46,7 +46,8 @@ public class CommandManager implements CommandExecutor {
 				player.setRenderDistance(RenderDistance.NORMAL);
 				player.setMinimumRenderDistance(RenderDistance.TINY);
 				player.setMaximumRenderDistance(RenderDistance.FAR);
-				player.getInventory().addItem(new SpoutItemStack(new PageBlock(), 1));
+				player.getInventory().clear();
+				player.getInventory().addItem(new SpoutItemStack(new PageItem(), 1));
 			}
 		} else {
 			sender.sendMessage("[Slender] You need to be using Spoutcraft to play.");
