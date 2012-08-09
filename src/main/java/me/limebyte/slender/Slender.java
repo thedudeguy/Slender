@@ -33,6 +33,7 @@ public class Slender extends JavaPlugin implements Listener {
         
         //Cache Textures
         SpoutManager.getFileManager().addToPreLoginCache(this, Textures.PAGEBLOCK_URL);
+        SpoutManager.getFileManager().addToPreLoginCache(this, Textures.PAGEITEM_URL);
 	}
 	
 	/**
