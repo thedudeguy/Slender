@@ -4,6 +4,7 @@ import java.util.logging.Logger;
 
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.getspout.spoutapi.SpoutManager;
 
 /**
  * Represents the Slender JavaPlugin.
@@ -29,6 +30,9 @@ public class Slender extends JavaPlugin implements Listener {
 		
         // Load command class
         getCommand("slender").setExecutor(new CommandManager());
+        
+        //Cache Textures
+        SpoutManager.getFileManager().addToPreLoginCache(this, Textures.PAGEBLOCK_URL);
 	}
 	
 	/**
