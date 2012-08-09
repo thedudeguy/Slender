@@ -21,7 +21,7 @@ public final class Textures {
 	 * The place where the PageBlock texture is stored.
 	 */
 	public static final String PAGEBLOCK_URL = BASE_URL + "PageBlock.png";
-	public static final Texture PAGEBLOCK = new Texture(Slender.getInstance(), PAGEBLOCK_URL, 64, 48, DEFAULT_SIZE);
+	public static final Texture PAGEBLOCK = new Texture(Slender.getInstance(), PAGEBLOCK_URL, 64, 64, DEFAULT_SIZE);
 	
 	/**
 	 * The place where the PageBlock texture is stored.
