@@ -22,7 +22,7 @@ public class PageBlockDesign extends GenericBlockDesign {
 		Slender plugin = Slender.getInstance();
 		Texture texture = Textures.PAGEBLOCK;
 		
-		setQuadNumber(0);
+		setQuadNumber(2);
 		
 		setTexture(plugin, texture.getTexture());
 		setMinBrightness(1F).setMaxBrightness(1F);
