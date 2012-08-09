@@ -11,9 +11,14 @@ import org.getspout.spoutapi.block.design.Texture;
 public class PageBlockDesign extends GenericBlockDesign {
 	
 	/**
-	 * The size of one pixel.
+	 * The percentage size of one pixel.
 	 */
 	private static final float PIXEL_SIZE = 0.0625F;
+	
+	/**
+	 * The 1F minus the percentage size of one pixel.
+	 */
+	private static final float N_PIXEL_SIZE = 0.9375F;
 	
 	/**
 	 * Creates a new PaperBlock design.
@@ -22,7 +27,7 @@ public class PageBlockDesign extends GenericBlockDesign {
 		Slender plugin = Slender.getInstance();
 		Texture texture = Textures.PAGEBLOCK;
 		
-		setQuadNumber(6);
+		setQuadNumber(7);
 		
 		setBoundingBox(PIXEL_SIZE * 2, PIXEL_SIZE * 2, 0F, 1F - PIXEL_SIZE * 2, 1F - PIXEL_SIZE * 2, PIXEL_SIZE);
 		
@@ -32,7 +37,7 @@ public class PageBlockDesign extends GenericBlockDesign {
 		SubTexture frontTex = texture.getSubTexture(0);
 		SubTexture backTex = texture.getSubTexture(1);
 		SubTexture sideTex = texture.getSubTexture(2);
-		SubTexture topTex = texture.getSubTexture(3);
+		SubTexture nailTex = texture.getSubTexture(3);
 		
 		Quad frontFace = new Quad(0, frontTex);
 		frontFace.addVertex(0, 1F, 0F, PIXEL_SIZE);		// Bottom Right
@@ -58,22 +63,28 @@ public class PageBlockDesign extends GenericBlockDesign {
 		rightFace.addVertex(2, 1F, 1F, PIXEL_SIZE);		// Top Left
 		rightFace.addVertex(3, 1F, 0F, PIXEL_SIZE);		// Bottom Left
 		
-		Quad topFace = new Quad(4, topTex);
-		topFace.addVertex(0, 1F, 1F, PIXEL_SIZE);		// Bottom Right
-		topFace.addVertex(1, 1F, 1F, 0F);				// Top Right
-		topFace.addVertex(2, 0F, 1F, 0F);				// Top Left
-		topFace.addVertex(3, 0F, 1F, PIXEL_SIZE);		// Bottom Left
+		Quad topFace = new Quad(4, sideTex);
+		topFace.addVertex(0, 1F, N_PIXEL_SIZE, PIXEL_SIZE);		// Bottom Right
+		topFace.addVertex(1, 1F, N_PIXEL_SIZE, 0F);				// Top Right
+		topFace.addVertex(2, 0F, N_PIXEL_SIZE, 0F);				// Top Left
+		topFace.addVertex(3, 0F, N_PIXEL_SIZE, PIXEL_SIZE);		// Bottom Left
 		
-		Quad bottomFace = new Quad(5, topTex);
-		bottomFace.addVertex(0, 1F, 0F, 0F);			// Bottom Right
-		bottomFace.addVertex(1, 1F, 0F, PIXEL_SIZE);	// Top Right
-		bottomFace.addVertex(2, 0F, 0F, PIXEL_SIZE);	// Top Left
-		bottomFace.addVertex(3, 0F, 0F, 0F);			// Bottom Left
+		Quad bottomFace = new Quad(5, sideTex);
+		bottomFace.addVertex(0, 1F, PIXEL_SIZE, 0F);			// Bottom Right
+		bottomFace.addVertex(1, 1F, PIXEL_SIZE, PIXEL_SIZE);	// Top Right
+		bottomFace.addVertex(2, 0F, PIXEL_SIZE, PIXEL_SIZE);	// Top Left
+		bottomFace.addVertex(3, 0F, PIXEL_SIZE, 0F);			// Bottom Left
 	
+		Quad nailFront = new Quad(6, nailTex);
+		nailFront.addVertex(0, PIXEL_SIZE * 9, PIXEL_SIZE * 3, PIXEL_SIZE * 2);		// Bottom Right
+		nailFront.addVertex(1, PIXEL_SIZE * 9, PIXEL_SIZE * 4, PIXEL_SIZE * 2);		// Top Right
+		nailFront.addVertex(2, PIXEL_SIZE * 8, PIXEL_SIZE * 4, PIXEL_SIZE * 2);		// Top Left
+		nailFront.addVertex(3, PIXEL_SIZE * 8, PIXEL_SIZE * 3, PIXEL_SIZE * 2);		// Bottom Left
 		
 	    setQuad(frontFace).setQuad(backFace);
 	    setQuad(leftFace).setQuad(rightFace);
 	    setQuad(topFace).setQuad(bottomFace);
+	    setQuad(nailFront);
 	}
 
 }
