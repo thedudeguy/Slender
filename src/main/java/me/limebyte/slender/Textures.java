@@ -24,6 +24,16 @@ public final class Textures {
 	public static final Texture PAGEBLOCK = new Texture(Slender.getInstance(), PAGEBLOCK_URL, 32, 32, DEFAULT_SIZE);
 	
 	/**
+	 * The place where the on state LanternItem texture is stored.
+	 */
+	public static final String LANTERN_ON_URL = BASE_URL + "LanternOn.png";
+	
+	/**
+	 * The place where the off state LanternItem texture is stored.
+	 */
+	public static final String LANTERN_OFF_URL = BASE_URL + "LanternOff.png";
+	
+	/**
 	 * The place where the PageBlock texture is stored.
 	 */
 	public static final String PAGEITEM_URL = BASE_URL + "PageItem.png";

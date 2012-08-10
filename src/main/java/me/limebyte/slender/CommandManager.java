@@ -26,15 +26,24 @@ public class CommandManager implements CommandExecutor {
 		if (sender instanceof SpoutPlayer && ((SpoutPlayer) sender).isSpoutCraftEnabled()) {
 			if (arg[0].equalsIgnoreCase("join")) {
 				SpoutPlayer player = (SpoutPlayer) sender;
-				player.setGameMode(GameMode.SURVIVAL);
-				player.getMainScreen().getHungerBar().setVisible(false);
+				
+				// Atmosphere
 				player.getWorld().setTime(NIGHT_TIME);
 				SpoutManager.getSkyManager().setFogColor(player, new Color(0, 0, 0));
 				SpoutManager.getSkyManager().setCloudsVisible(player, false);
 				player.setRenderDistance(RenderDistance.TINY);
 				player.setMinimumRenderDistance(RenderDistance.TINY);
 				player.setMaximumRenderDistance(RenderDistance.TINY);
-				player.setExp(1F);
+				
+				// HUD
+				player.setGameMode(GameMode.SURVIVAL);
+				player.getInventory().clear();
+				
+				// Lantern
+				Lantern lantern = new Lantern();
+				lantern.equip(player).start();
+				
+				player.getMainScreen().getHungerBar().setVisible(false);
 			}
 			
 			if (arg[0].equalsIgnoreCase("build")) {

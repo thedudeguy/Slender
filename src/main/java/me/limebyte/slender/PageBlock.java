@@ -1,6 +1,5 @@
 package me.limebyte.slender;
 
-import org.getspout.spoutapi.inventory.SpoutItemStack;
 import org.getspout.spoutapi.material.MaterialData;
 import org.getspout.spoutapi.material.block.GenericCustomBlock;
 
@@ -19,7 +18,6 @@ public class PageBlock extends GenericCustomBlock {
 	 */
 	public PageBlock() {
 		super(Slender.getInstance(), "Page Block", BASE_BLOCK, false);
-		setItemDrop(new SpoutItemStack(new PageItem(), 1));
 		setBlockDesign(new PageBlockDesign()).setHardness(MaterialData.sugarCaneBlock.getHardness());
 	}
 
